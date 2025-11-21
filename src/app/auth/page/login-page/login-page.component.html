@@ -1,0 +1,22 @@
+<h1>Dashboard</h1>
+<h2>Inicia sesión en tu cuenta</h2>
+
+<form [formGroup]="loginForm" (submit)="onLogin()">
+    <div>
+        <label for="email">Correo electrónico</label>
+        <input id="email" type="email" class="input" formControlName="email" />
+
+        <label for="password">Contraseña</label>
+        <input id="password" type="password" class="input" formControlName="password" />
+
+        <div>
+            <button type="submit">Iniciar sesión</button>
+        </div>
+    </div>
+</form>
+
+@if (hasError()) {
+    <div role="alert">
+        <span>¡Error! Por favor revise la información ingresada.</span>
+    </div>
+}
