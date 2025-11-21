@@ -12,4 +12,8 @@ export class AuthService {
     login(email: string, password: string): Observable<boolean> {
         return of(true);
     };
+
+    register(fullName: string, email: string, password: string): Observable<boolean> {
+        return of(true);
+    };
 };

@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
 import { LoginPageComponent } from "./page/login-page/login-page.component";
 import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component";
+import { RegisterPageComponent } from "./page/register-page/register-page.component";
 
 export const authRoutes: Routes = [
     {
@@ -10,6 +11,10 @@ export const authRoutes: Routes = [
             {
                 path: 'login',
                 component: LoginPageComponent,
+            },
+            {
+                path: 'register',
+                component: RegisterPageComponent,
             },
             {
                 path: '**',
