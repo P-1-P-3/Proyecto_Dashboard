@@ -1,59 +1,72 @@
 # Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 19.0.5.
 
-## Development server
+## Clonar el repositorio remoto
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Ejecutar en la terminal:
 
 ```bash
-ng generate component component-name
+# clonando por HTTPS
+git clone https://github.com/P-1-P-3/Proyecto_Dashboard.git
+
+cd 006_dashboard
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Instalación de dependencias
+
+Se recomienda usar Node.js 18+ y npm 9+ (o Yarn).
 
 ```bash
-ng generate --help
+# instalar dependencias con npm
+npm install
+
+# o con yarn
+yarn install
+
+# instalar Angular CLI global opcionalmente (mismo major que el proyecto)
+npm install -g @angular/cli@19
 ```
 
-## Building
-
-To build the project run:
+## Ejecutar el proyecto (desarrollo)
 
 ```bash
-ng build
+# servir en modo desarrollo y abrir navegador
+ng serve --open
+
+# o si existe script en package.json
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+La app quedará disponible por defecto en `http://localhost:4200/`.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Scripts útiles
 
 ```bash
-ng test
+# construir para producción
+npm run build
+
+# pruebas unitarias (Karma)
+npm test
+
+# pruebas end-to-end (si están configuradas)
+npm run e2e
 ```
 
-## Running end-to-end tests
+## Notas y solución de problemas rápida
 
-For end-to-end (e2e) testing, run:
+- Si hay errores de dependencias, borrar node_modules y package-lock.json (o yarn.lock) y reinstalar:
 
-```bash
-ng e2e
-```
+    ```bash
+    rm -rf node_modules package-lock.json
+    npm install
+    ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Para problemas con versiones de Node, use nvm para cambiar de versión.
+- Si ng serve muestra que falta algún paquete, ejecutar `npm install` y verificar la versión de Angular CLI.
+- Añadir variables de entorno y archivos de configuración en /src/environments según sea necesario.
 
-## Additional Resources
+## Recursos adicionales
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Documentación Angular: `https://angular.io/`
+- Angular CLI: `https://angular.dev/cli`
