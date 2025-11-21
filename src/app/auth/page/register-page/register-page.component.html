@@ -1,0 +1,28 @@
+<h1>Dashboard</h1>
+<h2>Registra tu cuenta</h2>
+
+<form [formGroup]="registerForm" (submit)="onRegister()">
+    <div>
+        <label class="label" for="fullname">Nombre</label>
+        <input id="fullname" type="text" class="input" formControlName="fullname" />
+
+        <label class="label" for="email">Correo electrónico</label>
+        <input id="email" type="email" class="input" formControlName="email" />
+
+        <label class="label" for="password">Contraseña</label>
+        <input id="password" type="password" class="input" formControlName="password" />
+
+        <label class="label" for="repeat_password">Confirmar Contraseña</label>
+        <input id="repeat_password" type="password" class="input" formControlName="repeat_password" />
+
+        <div class="card-actions justify-center mt-4">
+            <button type="submit">Iniciar sesión</button>
+        </div>
+    </div>
+</form>
+
+@if (hasError()) {
+    <div role="alert">
+        <span>¡Error! Por favor revise la información ingresada.</span>
+    </div>
+}
