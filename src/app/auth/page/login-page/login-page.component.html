@@ -12,6 +12,15 @@
         <div class="card-actions justify-center mt-4">
             <button type="submit" class="btn btn-primary w-full">Iniciar sesión</button>
         </div>
+
+        <p>
+            ¿Aún no tienes cuenta? 
+            <a [routerLink]="['/auth/register']" class="link link-secondary">Regístrate gratis</a>.
+        </p>
+        <p>
+            ¿Olvidaste tu contraseña? 
+            <a [routerLink]="['/auth/reset-password']" class="link link-secondary">Restablecer contraseña</a>.
+        </p>
     </div>
 </form>
 
