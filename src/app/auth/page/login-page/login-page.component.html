@@ -1,0 +1,31 @@
+<h1 class="text-4xl text-center font-bold font-array text-primary mb-8">Dashboard</h1>
+<h2 class="text-2xl text-center font-bold mb-8">Inicia sesión en tu cuenta</h2>
+
+<form [formGroup]="loginForm" (submit)="onLogin()" class="card bg-base-100 w-svw sm:w-96 shadow-none sm:shadow-sm">
+    <div class="card-body">
+        <label class="label" for="email">Correo electrónico</label>
+        <input id="email" type="email" class="input w-full" formControlName="email" />
+
+        <label class="label" for="password">Contraseña</label>
+        <input id="password" type="password" class="input w-full" formControlName="password" />
+
+        <div class="card-actions justify-center mt-4">
+            <button type="submit" class="btn btn-primary w-full">Iniciar sesión</button>
+        </div>
+
+        <p>
+            ¿Aún no tienes cuenta? 
+            <a [routerLink]="['/auth/register']" class="link link-secondary">Regístrate gratis</a>.
+        </p>
+        <p>
+            ¿Olvidaste tu contraseña? 
+            <a [routerLink]="['/auth/reset-password']" class="link link-secondary">Restablecer contraseña</a>.
+        </p>
+    </div>
+</form>
+
+@if (hasError()) {
+    <div role="alert" class="absolute bottom-4 right-4 alert alert-error alert-soft">
+        <span>¡Error! Por favor revise la información ingresada.</span>
+    </div>
+}
