@@ -16,4 +16,8 @@ export class AuthService {
     register(fullName: string, email: string, password: string): Observable<boolean> {
         return of(true);
     };
+
+    passwordResetLinkSent(email: string): Observable<boolean> {
+        return of(true);
+    };
 };
