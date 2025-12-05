@@ -19,6 +19,14 @@ export class AuthService {
         );
     };
 
+    loginWithGoogle(): Observable<boolean> {
+        this._loadingService.loadingOn();
+        return of(true).pipe(
+            delay(2000),
+            finalize(() => this._loadingService.loadingOff())
+        );
+    };
+
     register(fullName: string, email: string, password: string): Observable<boolean> {
         this._loadingService.loadingOn();
         return of(true).pipe(

@@ -42,6 +42,17 @@ export class LoginPageComponent {
         });
     };
 
+    onLoginWithGoogle() {
+        this._authService.loginWithGoogle().subscribe((res) => {
+            if (res) {
+                this._router.navigate(['/']);
+                return;
+            }
+
+            this.showError();
+        });
+    };
+
     showError(delay: number = 4000) {
         this.hasError.set(true);
         setTimeout(() => this.hasError.set(false), delay);
