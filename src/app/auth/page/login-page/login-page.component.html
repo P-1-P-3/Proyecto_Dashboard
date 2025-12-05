@@ -4,10 +4,26 @@
 <form [formGroup]="loginForm" (submit)="onLogin()" class="card bg-base-100 w-svw sm:w-96 shadow-none sm:shadow-sm">
     <div class="card-body">
         <label class="label" for="email">Correo electrónico</label>
-        <input id="email" type="email" class="input w-full" formControlName="email" />
+        <input 
+            id="email" 
+            type="email" 
+            formControlName="email"
+            class="input w-full" 
+            [class.border-error]="loginForm.get('email')?.errors && loginForm.touched"
+            [class.focus:outline-error]="loginForm.get('email')?.errors && loginForm.touched" 
+        />
+        <app-form-error [formGroup]="loginForm" field="email" message="Correo electrónico inválido"></app-form-error>
 
         <label class="label" for="password">Contraseña</label>
-        <input id="password" type="password" class="input w-full" formControlName="password" />
+        <input 
+            id="password" 
+            type="password" 
+            formControlName="password" 
+            class="input w-full" 
+            [class.border-error]="loginForm.get('password')?.errors && loginForm.touched"
+            [class.focus:outline-error]="loginForm.get('password')?.errors && loginForm.touched" 
+        />
+        <app-form-error [formGroup]="loginForm" field="password" message="La contraseña debe tener al menos 6 caracteres"></app-form-error>
 
         <div class="card-actions justify-center mt-4">
             <button type="submit" class="btn btn-primary w-full">Iniciar sesión</button>
