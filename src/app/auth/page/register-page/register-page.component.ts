@@ -3,12 +3,14 @@ import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Router, RouterLink } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
 import { crossPasswordValidator } from "../../utils/auth-custom.validator";
+import { FormErrorComponent } from "../../../shared/components/form-error/form-error.component";
 
 @Component({
     templateUrl: './register-page.component.html',
     imports: [
         ReactiveFormsModule,
         RouterLink,
+        FormErrorComponent,
     ]
 })
 export class RegisterPageComponent {

@@ -2,12 +2,14 @@ import { Component, inject, signal } from "@angular/core";
 import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms"
 import { Router, RouterLink } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
+import { FormErrorComponent } from "../../../shared/components/form-error/form-error.component";
 
 @Component({
     templateUrl: './login-page.component.html',
     imports: [
         ReactiveFormsModule,
         RouterLink,
+        FormErrorComponent,
     ]
 })
 export class LoginPageComponent {
@@ -31,6 +33,17 @@ export class LoginPageComponent {
         const { email, password } = this.loginForm.value;
 
         this._authService.login(email!, password!).subscribe((res) => {
+            if (res) {
+                this._router.navigate(['/']);
+                return;
+            }
+
+            this.showError();
+        });
+    };
+
+    onLoginWithGoogle() {
+        this._authService.loginWithGoogle().subscribe((res) => {
             if (res) {
                 this._router.navigate(['/']);
                 return;

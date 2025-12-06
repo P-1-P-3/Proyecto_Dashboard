@@ -4,16 +4,49 @@
 <form [formGroup]="registerForm" (submit)="onRegister()" class="card bg-base-100 w-svw sm:w-96 shadow-none sm:shadow-sm">
     <div class="card-body">
         <label class="label" for="fullname">Nombre</label>
-        <input id="fullname" type="text" class="input w-full" formControlName="fullname" />
+        <input 
+            id="fullname" 
+            type="text" 
+            formControlName="fullname" 
+            class="input w-full"
+            [class.border-error]="registerForm.get('fullname')?.errors && registerForm.touched"
+            [class.focus:outline-error]="registerForm.get('fullname')?.errors && registerForm.touched" 
+        />
+        <app-form-error [formGroup]="registerForm" field="fullname" message="Nombre inválido"></app-form-error>
 
         <label class="label" for="email">Correo electrónico</label>
-        <input id="email" type="email" class="input w-full" formControlName="email" />
+        <input 
+            id="email" 
+            type="email" 
+            formControlName="email" 
+            class="input w-full" 
+            [class.border-error]="registerForm.get('email')?.errors && registerForm.touched"
+            [class.focus:outline-error]="registerForm.get('email')?.errors && registerForm.touched"
+        />
+        <app-form-error [formGroup]="registerForm" field="email" message="Correo electrónico inválido"></app-form-error>
+
 
         <label class="label" for="password">Contraseña</label>
-        <input id="password" type="password" class="input w-full" formControlName="password" />
+        <input 
+            id="password" 
+            type="password" 
+            formControlName="password" 
+            class="input w-full"
+            [class.border-error]="registerForm.get('password')?.errors && registerForm.touched"
+            [class.focus:outline-error]="registerForm.get('password')?.errors && registerForm.touched"
+        />
+        <app-form-error [formGroup]="registerForm" field="password" message="La contraseña debe tener al menos 6 caracteres"></app-form-error>
 
         <label class="label" for="repeat_password">Confirmar Contraseña</label>
-        <input id="repeat_password" type="password" class="input w-full" formControlName="repeat_password" />
+        <input 
+            id="repeat_password" 
+            type="password" 
+            formControlName="repeat_password" 
+            class="input w-full"
+            [class.border-error]="registerForm.get('repeat_password')?.errors && registerForm.touched"
+            [class.focus:outline-error]="registerForm.get('repeat_password')?.errors && registerForm.touched"
+        />
+        <app-form-error [formGroup]="registerForm" field="repeat_password" message="Las contraseñas no coinciden"></app-form-error>
 
         <div class="card-actions justify-center mt-4">
             <button type="submit" class="btn btn-primary w-full">Registrar</button>
